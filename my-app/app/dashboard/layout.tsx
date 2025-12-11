@@ -1,12 +1,13 @@
-import { SideBar } from "../Components/SideBar";
+import { AppSidebar } from "../Components/SideBar";
+import { SidebarInset } from "../../components/ui/sidebar";
 
 export default function RootLayout({children}: { children: React.ReactNode }){
     return (
-        <div>
-            <div>
-                <SideBar/>
+        <div className="flex">
+            <AppSidebar/>
+            <div className="w-full">
+                {children}
             </div>
-            <div></div>
         </div>
     )
 }
