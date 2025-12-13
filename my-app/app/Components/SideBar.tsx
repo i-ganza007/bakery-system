@@ -1,21 +1,8 @@
 "use client"
-import { Plus } from "lucide-react"
-import { 
-  Sidebar, 
-  SidebarContent, 
-  SidebarGroup, 
-  SidebarGroupAction, 
-  SidebarGroupContent, 
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarProvider
-} from "../../components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Logo from '../../public/whitebakerylogo.webp'
-
+import Link from 'next/link'
 export function AppSidebar() {
     const projects = [
         {name:'Dashboard',url:'/projects/chocolate-cake',icon:<svg width="40" height="40" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,38 +31,23 @@ export function AppSidebar() {
 }
     ]
   return (
-        <SidebarProvider>
-            <Sidebar>
-                <SidebarContent className="bg-[#6B3D24]">
-                    <SidebarGroup className="flex flex-col gap-20 mt-25 justify-center items-center">
-                        <SidebarGroupLabel><Image src={Logo} alt="image logo"/></SidebarGroupLabel>
-                        <SidebarGroupContent>
-                            <SidebarMenu className="flex flex-col gap-5 items-center justify-center">
-                            {projects.map((project) => (
-                                <SidebarMenuItem key={project.name}>
-                                <SidebarMenuButton asChild className="flex items-center justify-center gap-5 p-8">
-                                    <a href={project.url}>
-                                    <span className="w-8 flex items-center justify-center shrink-0">
-                                    {project.icon}
-                                    </span>
-                                    <span className="text-[#F1EDDD] text-3xl">{project.name}</span>
-                                    </a>
-                                </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
-                            </SidebarMenu>
-                        </SidebarGroupContent>
-                        <Button  size={"lg"} className="w-72 bg-[#F99333] text-white text-2xl p-8 flex justify-center items-center gap-5">
-                            Logout
-                            <span className="w-8 flex items-center justify-center shrink-0">
-                                <svg width="40" height="40" viewBox="0 0 25 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M24.2676 10.2061L16.0645 18.4092C15.332 19.1417 14.0625 18.629 14.0625 17.5792V12.8917H7.42188C6.77246 12.8917 6.25 12.3692 6.25 11.7198V7.03229C6.25 6.38287 6.77246 5.86041 7.42188 5.86041H14.0625V1.17291C14.0625 0.127992 15.3271 -0.389587 16.0645 0.342835L24.2676 8.54596C24.7217 9.00494 24.7217 9.74713 24.2676 10.2061ZM9.375 18.1651V16.212C9.375 15.8897 9.11133 15.626 8.78906 15.626H4.6875C3.82324 15.626 3.125 14.9278 3.125 14.0635V4.68854C3.125 3.82428 3.82324 3.12604 4.6875 3.12604H8.78906C9.11133 3.12604 9.375 2.86237 9.375 2.5401V0.586976C9.375 0.26471 9.11133 0.0010385 8.78906 0.0010385H4.6875C2.09961 0.0010385 0 2.10065 0 4.68854V14.0635C0 16.6514 2.09961 18.751 4.6875 18.751H8.78906C9.11133 18.751 9.375 18.4874 9.375 18.1651Z" fill="#F7E9B2"/>
-                                </svg>
-                            </span>
-                        </Button>
-                    </SidebarGroup>
-                </SidebarContent>
-            </Sidebar>
-        </SidebarProvider>
+        <div className="bg-[#6B3D24] flex flex-col gap-5 items-center w-96">
+            <div className="w-72">
+                <Image src={Logo} alt=""/>
+            </div>
+            <div className="flex flex-col gap-5 relative bottom-10">
+                {projects.map((x,idx)=>{
+                    return (
+                        <div key={idx} className="flex items-center gap-3 hover:bg-[#F99333] p-3 px-10 rounded-md">
+                            {x.icon}
+                            <Link href={x.url} className="text-white text-3xl">{x.name}</Link>
+                        </div>
+                    )
+                })}
+            </div>
+            <div>
+                <Button className="bg-[#FF7C00] text-white text-2xl py-7 px-33 w-20">Logout</Button>
+            </div>
+        </div>
   )
 }
