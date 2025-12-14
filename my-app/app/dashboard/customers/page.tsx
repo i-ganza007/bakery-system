@@ -78,23 +78,25 @@ export default function CustomerDashBoard(){
                     <Button className="bg-[#FF7C00] text-white text-2xl py-7 px-33 w-20">Add Customer</Button>
                 </div>
             </div>
-            <div>
+            <div className="border border-gray-300 rounded-lg overflow-hidden">
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead className="font-semibold text-black text-xl">Name</TableHead>
-                            <TableHead className="font-semibold text-black text-xl">Email</TableHead>
-                            <TableHead className="font-semibold text-black text-xl">Phone</TableHead>
-                            <TableHead className="font-semibold text-black text-xl text-right">Address</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center p-5">Name</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center">Email</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center">Phone</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center">Address</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center"></TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {invoices.map((invoice, index) => (
                         <TableRow key={index}>
-                            <TableCell className="font-medium p-5">{invoice.name}</TableCell>
-                            <TableCell className="">{invoice.email}</TableCell>
-                            <TableCell>{invoice.phone}</TableCell>
-                            <TableCell className="text-right">{invoice.address}</TableCell>
+                            <TableCell className="font-medium p-5 text-center">{invoice.name}</TableCell>
+                            <TableCell className="text-center">{invoice.email}</TableCell>
+                            <TableCell className="text-center">{invoice.phone}</TableCell>
+                            <TableCell className="text-center">{invoice.address}</TableCell>
+                            <TableCell className="text-center text-[#DE7E0A] bg-[#FDF8E9]">Edit</TableCell>
                         </TableRow>
                         ))}
                     </TableBody>

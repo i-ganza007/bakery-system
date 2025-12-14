@@ -79,23 +79,30 @@ export default function ProductsPage(){
             </div>
 
 
-            <div>
+            <div className="border border-gray-300 rounded-lg overflow-hidden">
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead className=" font-semibold text-black text-xl">Name</TableHead>
-                            <TableHead className="font-semibold text-black text-xl">Price</TableHead>
-                            <TableHead className="font-semibold text-black text-xl">Stock</TableHead>
-                            <TableHead className="font-semibold text-black text-xl text-right">Category</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center p-5">Name</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center">Price</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center">Stock</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center">Category</TableHead>
+                            <TableHead className="font-semibold text-black text-xl text-center">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {invoices.map((invoice, index) => (
                         <TableRow key={index}>
-                            <TableCell className="font-medium p-5">{invoice.name}</TableCell>
-                            <TableCell className="">{invoice.price}</TableCell>
-                            <TableCell>{invoice.stock}</TableCell>
-                            <TableCell className="text-right">{invoice.category}</TableCell>
+                            <TableCell className="font-medium p-5 text-center">{invoice.name}</TableCell>
+                            <TableCell className="text-center">{invoice.price}</TableCell>
+                            <TableCell className="text-center">{invoice.stock}</TableCell>
+                            <TableCell className="text-center">{invoice.category}</TableCell>
+                            <TableCell className="text-center">
+                                <div className="flex gap-2 justify-center">
+                                    <Button className="text-[#DE7E0A] bg-[#FDF8E9] px-4 py-1 text-sm">Edit</Button>
+                                    <Button className="bg-[#DD6E42] text-white px-4 py-1 text-sm">Delete</Button>
+                                </div>
+                            </TableCell>
                         </TableRow>
                         ))}
                     </TableBody>
