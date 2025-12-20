@@ -1,3 +1,5 @@
+"use client"
+
 import DashBoardTop from '../../Components/DashBoardTop'
 import { Button } from "@/components/ui/button"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"

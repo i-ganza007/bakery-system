@@ -1,3 +1,5 @@
+"use client"
+
 import { SearchIcon } from 'lucide-react'
 import DashBoardTop from '../../Components/DashBoardTop'
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
