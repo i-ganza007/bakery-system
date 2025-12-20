@@ -1,6 +1,6 @@
 "use client"
 import { redirect } from 'next/navigation'
-export default function DashBoardTop({title}){
+export default function DashBoardTop({title}:{title:String}){
     function handleClick(){
         redirect('/dashboard/profile')
         return
